@@ -1,7 +1,14 @@
 package fr.diginamic.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -10,8 +17,20 @@ public class Livre {
 	@Id
 	private int		id;
 	
+	@Column(name="TITRE")
 	private String	titre;
+	
+	@Column(name="AUTEUR")
 	private String  auteur;
+	
+	@ManyToMany
+	@JoinTable(	name="compo", 
+				joinColumns = @JoinColumn(name="ID_EMP", referencedColumnName="ID"),
+				inverseJoinColumns= @JoinColumn(name="ID_LIV", referencedColumnName="ID"))
+	
+	private List<Emprunt> lstEmprunts;
+	
+	
 	
 	public Livre() {
 		
@@ -57,6 +76,20 @@ public class Livre {
 	 */
 	public void setAuteur(String auteur) {
 		this.auteur = auteur;
+	}
+
+	/** Getter
+	 * @return the lstEmprunts
+	 */
+	public List<Emprunt> getLstEmprunts() {
+		return lstEmprunts;
+	}
+
+	/** Setter
+	 * @param lstEmprunts the lstEmprunts to set
+	 */
+	public void setLstEmprunts(List<Emprunt> lstEmprunts) {
+		this.lstEmprunts = lstEmprunts;
 	}
 
 }
