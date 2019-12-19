@@ -2,12 +2,14 @@ package fr.diginamic.banque;
 
 import java.time.LocalDate;
 
+import javax.persistence.AttributeOverride;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "VIREMENT")
 public class Virement extends Operation {
+	
 	private String beneficiare;
 
 	public Virement() {
