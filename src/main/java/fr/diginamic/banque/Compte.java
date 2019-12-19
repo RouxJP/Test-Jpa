@@ -6,14 +6,18 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="Compte")
+@Inheritance( strategy = InheritanceType.JOINED)
+@Table(name="COMPTE")
 public class Compte {
 	@Id
 	@Column(name="num_compte", length=50, nullable=false)

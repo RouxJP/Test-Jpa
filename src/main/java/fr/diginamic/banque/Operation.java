@@ -5,12 +5,15 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
 
 @Entity
-@Table(name="Operation")
+@Inheritance( strategy = InheritanceType.JOINED)
+@Table(name="OPERATION")
 public  class Operation {
 	@Id
 	@Column(name="id", nullable=false)
