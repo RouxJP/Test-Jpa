@@ -1,6 +1,5 @@
 package fr.diginamic.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -25,8 +24,8 @@ public class Livre {
 	
 	@ManyToMany
 	@JoinTable(	name="compo", 
-				joinColumns = @JoinColumn(name="ID_EMP", referencedColumnName="ID"),
-				inverseJoinColumns= @JoinColumn(name="ID_LIV", referencedColumnName="ID"))
+				joinColumns = @JoinColumn(name="ID_LIV", referencedColumnName="ID"),
+				inverseJoinColumns= @JoinColumn(name="ID_EMP", referencedColumnName="ID"))
 	
 	private List<Emprunt> lstEmprunts;
 	

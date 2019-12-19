@@ -35,21 +35,27 @@ public class TestBanque {
 		em.persist(banque2);
 		em.persist(banque3);
 		
-		// Créer des clients
+		// Créer des Adresse, Compte, Client
 		Adresse adresse1  = new Adresse( 61, "rue Vatel", 34070, "Montpellier");
 		Adresse adresse2  = new Adresse( 62, "rue Vatel", 34070, "Montpellier");
 		Adresse adresse3  = new Adresse( 63, "rue Vatel", 34070, "Montpellier");
-        Client client1 = new Client( "Dupont", "Jean", LocalDate.parse( "1978-12-14"), banque1, adresse1);
-        Client client2 = new Client( "Durant", "Paul", LocalDate.parse( "1979-12-14"), banque2, adresse2);
-        Client client3 = new Client( "Dark", "Vador",  LocalDate.parse( "1980-12-14"), banque3, adresse3);	
+		
+        Compte compte1 = new Compte( "123456789A", 1000.0D) ;
+        Compte compte2 = new Compte( "123456789B", 2000.0D) ;
+        Compte compte3 = new Compte( "123456789C", 3000.0D) ;
+		
+        Client client1 = new Client( 1, "Dupont", "Jean", LocalDate.parse( "1978-12-14"), 
+        								banque1, adresse1, compte1);
+        Client client2 = new Client( 2, "Durant", "Paul", LocalDate.parse( "1979-12-14"), 
+        								banque2, adresse2, compte2);
+        Client client3 = new Client( 3, "Dark", "Vador",  LocalDate.parse( "1980-12-14"), 
+        								banque3, adresse3, compte3);	
+        
         em.persist( client1);
         em.persist( client2);
         em.persist( client3);
         
 		// Créer des Comptes
-        Compte compte1 = new Compte( "123456789A", 1000.0D) ;
-        Compte compte2 = new Compte( "123456789B", 2000.0D) ;
-        Compte compte3 = new Compte( "123456789C", 3000.0D) ;
         em.persist( compte1);
         em.persist( compte2);
         em.persist( compte3);

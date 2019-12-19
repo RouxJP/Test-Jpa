@@ -1,5 +1,6 @@
 package fr.diginamic.banque;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -25,15 +26,22 @@ public class Compte {
 	@JoinTable(	name="compo", 
 				joinColumns= @JoinColumn(name="num_compte_cli", referencedColumnName="num_compte"),	
 				inverseJoinColumns = @JoinColumn(name="id_cli", referencedColumnName="id"))
-	private List<Client> lstClients;
+	private List<Client> lstClients = new ArrayList<>();
 	
 	@OneToMany( mappedBy = "compte")
 	private List<Operation> lstOperations;
 	
+	public Compte( String numCompte, double soldeInitial, Client client) {
+		this.numCompte 		= numCompte;
+		this.soldeInitial 	= soldeInitial ;
+		this.lstClients.add( client);
+	}
+
 	public Compte( String numCompte, double soldeInitial) {
 		this.numCompte 		= numCompte;
 		this.soldeInitial 	= soldeInitial ;
 	}
+
 
 	public Compte( ) {
 		
