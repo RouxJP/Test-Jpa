@@ -1,13 +1,11 @@
-import java.util.ArrayList;
-import java.util.List;
+package fr.diginamic;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import fr.diginamic.entities.Client;
+import fr.diginamic.entities.Clients;
 import fr.diginamic.entities.Emprunt;
 import fr.diginamic.entities.Livre;
 
@@ -49,14 +47,14 @@ public class TestBiblio {
 		}
 		
 		// Visualiser tous les emprunts pour unb client donné
-		TypedQuery<Client> query4 = em.createQuery("select c from Client c where id = 1 ", Client.class);
-		Client client = query4.getResultList( ).get(0);
+		TypedQuery<Clients> query4 = em.createQuery("select c from Clients c where id = 1 ", Clients.class);
+		Clients client = query4.getResultList( ).get(0);
 		System.out.println( "Les emprunts du client " + client.getNom() + " sont : " );
 		for( Emprunt emprunts : client.getLstEmprunts()) {
 			System.out.println( " - " + emprunts.getId() );
 		}	
 
-		
+		em.close();
 	}
 		
 	

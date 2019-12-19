@@ -1,3 +1,4 @@
+package fr.diginamic;
 import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
@@ -20,8 +21,8 @@ public class TestJpa {
 		
 		// Créer un nouveau fournisseur
 		Fournisseur fou  = new Fournisseur();
-		fou.setId_fournisseur( 5);
-		fou.setNom( "FourJpa5");
+		fou.setId_fournisseur( 6);
+		fou.setNom( "FourJpa6");
 		em.persist(fou);
 		
 		et.commit();
@@ -35,10 +36,7 @@ public class TestJpa {
 		
 		em.close();
 		
-		
-		
-		em.close();
-		
+
 	}
 
 }

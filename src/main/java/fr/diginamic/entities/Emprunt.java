@@ -31,7 +31,7 @@ public class Emprunt {
 	
 	@ManyToOne
 	@JoinColumn( name="ID_CLIENT")
-	private Client	client;
+	private Clients	client;
 	
 	
 	@ManyToMany
@@ -120,14 +120,14 @@ public class Emprunt {
 	/** Getter
 	 * @return the client
 	 */
-	public Client getClient() {
+	public Clients getClient() {
 		return client;
 	}
 
 	/** Setter
 	 * @param client the client to set
 	 */
-	public void setClient(Client client) {
+	public void setClient(Clients client) {
 		this.client = client;
 	}
 }
