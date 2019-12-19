@@ -1,4 +1,4 @@
-package fr.diginamic;
+package fr.diginamic.entities;
 import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
@@ -6,8 +6,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-
-import fr.diginamic.entities.Fournisseur;
 
 public class TestJpa {
 
@@ -21,8 +19,8 @@ public class TestJpa {
 		
 		// Créer un nouveau fournisseur
 		Fournisseur fou  = new Fournisseur();
-		fou.setId_fournisseur( 6);
-		fou.setNom( "FourJpa6");
+		fou.setId_fournisseur( 7);
+		fou.setNom( "FourJpa7");
 		em.persist(fou);
 		
 		et.commit();
